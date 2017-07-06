@@ -8,6 +8,7 @@ html {
   box-sizing: inherit;
 }
 
+
 /*** Colors ***/
 $light-brown: #9b8579;
 $brown: #594a42;
@@ -17,29 +18,70 @@ $tan: #c49a6c;
 $light-tan: #c2b59b;
 $dark-gray: #414042;
 
+
 /*** Variables ***/
 $gutter-margin: 15px;
 $small-min-width: 48em;  /* 768px for default 16px/em */
 $small-max-width: $small-min-width - 0.0625;  /* removing 1 pixel */
 $medium-min-width: 62em;
 
-@mixin small-and-above {
+@mixin small-and-above() {
   @media only screen and (min-width: $small-min-width) {
     @content;
   }
 }
 
-@mixin extra-small-only {
+@mixin extra-small-only() {
   @media only screen and (max-width: $small-max-width) {
     @content;
   }
 }
 
-@mixin medium-and-above {
+@mixin medium-and-above() {
   @media only screen and (min-width: $medium-min-width) {
     @content;
   }
 }
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin flex-order($val) {
+  -webkit-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  order: $val;
+}
+
+@mixin flex-direction-row-reverse() {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+@mixin flex-flow-row() {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row;
+  flex-flow: row;
+}
+
+@mixin flex-flow-column() {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column;
+  flex-flow: column;
+}
+
 
 /*** Base Styles ***/
 body {
@@ -60,6 +102,7 @@ a:hover {
   text-decoration: underline;
 }
 
+
 /*** Grid ***/
 .container {
   padding-right: $gutter-margin;
@@ -72,6 +115,8 @@ a:hover {
 .row {
   margin-right: -$gutter-margin;
   margin-left: -$gutter-margin;
+  @include flexbox();
+  @include flex-flow-column();
 }
 
 [class*='col-'] {
@@ -79,6 +124,28 @@ a:hover {
   padding-right: $gutter-margin;
   width: 100%;
 }
+
+@include small-and-above() {
+  .row {
+    @include flex-flow-row();
+  }
+  .col-1-2 {
+    @include flex(0 1 50%);
+  }
+  .col-1-3 {
+    @include flex(0 1 (100% / 3));
+  }
+  .col-1-4 {
+    @include flex(0 1 25%);
+  }
+  .col-2-3 {
+    @include flex(0 1 (100% * (2/3)));
+  }
+  .sm-row-reverse {
+    @include flex-direction-row-reverse();
+  }
+}
+
 
 /*** Themes ***/
 .header {
