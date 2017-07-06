@@ -414,10 +414,14 @@ html {
 /* 768px for default 16px/em */
 /* removing 1 pixel */
 /*** Base Styles ***/
+html {
+  font-size: 100%; }
+
 body {
   color: #414042;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: normal; }
+  font-weight: normal;
+  font-size: 1.5rem; }
 
 h1, h2, h3 {
   font-weight: bold; }
@@ -436,7 +440,7 @@ a:hover {
   margin-right: auto;
   margin-left: auto;
   max-width: 62.5rem;
-  /* 1000px for default 16px/12pt font */ }
+  /* note default 1em/16px/12pt font */ }
 
 .row {
   margin-right: -15px;
@@ -475,6 +479,11 @@ a:hover {
     -webkit-flex: 0 1 25%;
     -ms-flex: 0 1 25%;
     flex: 0 1 25%; }
+
+  .col-1-6 {
+    -webkit-flex: 0 1 16.66667%;
+    -ms-flex: 0 1 16.66667%;
+    flex: 0 1 16.66667%; }
 
   .col-2-3 {
     -webkit-flex: 0 1 66.66667%;
@@ -519,5 +528,15 @@ a:hover {
 .footer {
   background: #594a42;
   color: #9b8579; }
+
+@media only screen and (min-width: 48em) {
+  .footer-divider {
+    min-height: 1px;
+    background: white; } }
+
+.footer-legal {
+  font-size: 1rem; }
+  .footer-legal a {
+    color: #9b8579; }
 
 /*# sourceMappingURL=stylesheet.css.map */

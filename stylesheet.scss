@@ -84,10 +84,15 @@ $medium-min-width: 62em;
 
 
 /*** Base Styles ***/
+html {
+  font-size: 100%;
+}
+
 body {
   color: $dark-gray;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: normal;
+  font-size: 1.5rem;
 }
 
 h1, h2, h3 {
@@ -109,7 +114,7 @@ a:hover {
   padding-left: $gutter-margin;
   margin-right: auto;
   margin-left: auto;
-  max-width: 62.5rem;  /* 1000px for default 16px/12pt font */
+  max-width: (1/16 * 1000) + 0rem;  /* note default 1em/16px/12pt font */
 }
 
 .row {
@@ -137,6 +142,9 @@ a:hover {
   }
   .col-1-4 {
     @include flex(0 1 25%);
+  }
+  .col-1-6 {
+    @include flex(0 1 (100% / 6));
   }
   .col-2-3 {
     @include flex(0 1 (100% * (2/3)));
@@ -189,4 +197,18 @@ a:hover {
 .footer {
   background: $brown;
   color: $light-brown;
+}
+
+.footer-divider {
+  @include small-and-above() {
+    min-height: 1px;
+    background: white;
+  }
+}
+
+.footer-legal {
+  font-size: 1rem;
+  a {
+    color: $light-brown;
+  }
 }
