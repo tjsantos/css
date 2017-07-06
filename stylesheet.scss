@@ -114,7 +114,9 @@ a:hover {
   padding-left: $gutter-margin;
   margin-right: auto;
   margin-left: auto;
-  max-width: (1/16 * 1000) + 0rem;  /* note default 1em/16px/12pt font */
+  /* large device breakpoint = 1200px, expressed in rem. note default 1em/16px/12pt font */
+  max-width: (1200 * (1/16)) + 0rem;
+
 }
 
 .row {

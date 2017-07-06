@@ -439,8 +439,8 @@ a:hover {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  max-width: 62.5rem;
-  /* note default 1em/16px/12pt font */ }
+  /* large device breakpoint = 1200px, expressed in rem. note default 1em/16px/12pt font */
+  max-width: 75rem; }
 
 .row {
   margin-right: -15px;
