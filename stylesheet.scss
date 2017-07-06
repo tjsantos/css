@@ -19,6 +19,20 @@ $dark-gray: #414042;
 
 /*** Variables ***/
 $gutter-margin: 15px;
+$small-min-width: 48em;  /* 768px for default 16px/em */
+$small-max-width: $small-min-width - 0.0625;  /* removing 1 pixel */
+
+@mixin small-and-above {
+  @media only screen and (min-width: $small-min-width) {
+    @content;
+  }
+}
+
+@mixin extra-small-only {
+  @media only screen and (max-width: $small-max-width) {
+    @content;
+  }
+}
 
 /*** Base Styles ***/
 body {

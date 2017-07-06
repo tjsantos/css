@@ -411,6 +411,8 @@ html {
 
 /*** Colors ***/
 /*** Variables ***/
+/* 768px for default 16px/em */
+/* removing 1 pixel */
 /*** Base Styles ***/
 body {
   color: #414042;
