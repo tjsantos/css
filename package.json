@@ -1,0 +1,15 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "chokidar-cli": "^1.2.0",
+    "node-sass": "^4.5.3",
+    "postcss-cli": "^4.1.0"
+  },
+  "scripts": {
+    "scss": "node-sass stylesheet.scss stylesheet.css --source-map true",
+    "autoprefixer": "postcss stylesheet.css --use autoprefixer --replace",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "watch:css": "chokidar '[s]tylesheet.scss' --command 'npm run build:css' --initial --verbose"
+  }
+}
