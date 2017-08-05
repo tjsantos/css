@@ -22,17 +22,18 @@ $dark-gray: #414042;
 /*** Variables ***/
 $gutter-margin: 15px;
 $small-min-width: 48em;  /* 768px for default 16px/em */
-$small-max-width: $small-min-width - 0.0625;  /* removing 1 pixel */
+$extra-small-max-width: $small-min-width - 0.0625;  /* removing 1 pixel */
 $medium-min-width: 62em;
+$max-content-width: 75rem; /* large device breakpoint = 1200px */
 
-@mixin small-and-above() {
-  @media only screen and (min-width: $small-min-width) {
+@mixin extra-small-only() {
+  @media only screen and (max-width: $extra-small-max-width) {
     @content;
   }
 }
 
-@mixin extra-small-only() {
-  @media only screen and (max-width: $small-max-width) {
+@mixin small-and-above() {
+  @media only screen and (min-width: $small-min-width) {
     @content;
   }
 }
@@ -84,9 +85,7 @@ a:hover {
   padding-left: $gutter-margin;
   margin-right: auto;
   margin-left: auto;
-  /* large device breakpoint = 1200px, expressed in rem. note default 1em/16px/12pt font */
-  max-width: (1200 * (1/16)) + 0rem;
-
+  max-width: $max-content-width;
 }
 
 .row {
@@ -94,43 +93,43 @@ a:hover {
   margin-left: -$gutter-margin;
   display: flex;
   flex-flow: column;
-}
 
-[class*='col-'] {
-  padding-left: $gutter-margin;
-  padding-right: $gutter-margin;
-  width: 100%;
-}
+  [class*='col-'] {
+    position: relative;
+    padding-left: $gutter-margin;
+    padding-right: $gutter-margin;
+    width: 100%;
+  }
 
-@include small-and-above() {
-  .row {
+  @include small-and-above() {
     flex-flow: row;
-  }
-  .col-1-2 {
-    @include flex-column(1/2);
-  }
-  .col-1-3 {
-    @include flex-column(1/3);
-  }
-  .col-1-4 {
-    @include flex-column(1/4);
-  }
-  .col-1-6 {
-    @include flex-column(1/6);
-  }
-  .col-2-3 {
-    @include flex-column(2/3);
-  }
 
-  .sm-row-reverse {
-    flex-direction: row-reverse;
+    .col-1-2 {
+      @include flex-column(1/2);
+    }
+    .col-1-3 {
+      @include flex-column(1/3);
+    }
+    .col-1-4 {
+      @include flex-column(1/4);
+    }
+    .col-1-6 {
+      @include flex-column(1/6);
+    }
+    .col-2-3 {
+      @include flex-column(2/3);
+    }
+
+    &.sm-row-reverse {
+      flex-direction: row-reverse;
+    }
   }
 }
 
 .remove-gutter-xs {
   @include extra-small-only() {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
