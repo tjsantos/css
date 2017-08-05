@@ -43,43 +43,13 @@ $medium-min-width: 62em;
   }
 }
 
-@mixin flexbox() {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-@mixin flex($values) {
-  -webkit-flex:  $values;
-  -ms-flex:  $values;
-  flex:  $values;
-}
-
-@mixin flex-order($val) {
-  -webkit-box-ordinal-group: $val;
-  -ms-flex-order: $val;
-  order: $val;
-}
-
-@mixin flex-direction-row-reverse() {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-  -ms-flex-direction: row-reverse;
-  flex-direction: row-reverse;
-}
-
-@mixin flex-flow-row() {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: row;
-  flex-flow: row;
-}
-
-@mixin flex-flow-column() {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: column;
-  flex-flow: column;
+@mixin flex-column($fraction) {
+  flex: 0 0 percentage($fraction);
+  // from bootstrap:
+  // Add a `max-width` to ensure content within each column does not blow out
+  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+  // do not appear to require this.
+  max-width: percentage($fraction);
 }
 
 
@@ -122,8 +92,8 @@ a:hover {
 .row {
   margin-right: -$gutter-margin;
   margin-left: -$gutter-margin;
-  @include flexbox();
-  @include flex-flow-column();
+  display: flex;
+  flex-flow: column;
 }
 
 [class*='col-'] {
@@ -134,25 +104,26 @@ a:hover {
 
 @include small-and-above() {
   .row {
-    @include flex-flow-row();
+    flex-flow: row;
   }
   .col-1-2 {
-    @include flex(0 1 50%);
+    @include flex-column(1/2);
   }
   .col-1-3 {
-    @include flex(0 1 (100% / 3));
+    @include flex-column(1/3);
   }
   .col-1-4 {
-    @include flex(0 1 25%);
+    @include flex-column(1/4);
   }
   .col-1-6 {
-    @include flex(0 1 (100% / 6));
+    @include flex-column(1/6);
   }
   .col-2-3 {
-    @include flex(0 1 (100% * (2/3)));
+    @include flex-column(2/3);
   }
+
   .sm-row-reverse {
-    @include flex-direction-row-reverse();
+    flex-direction: row-reverse;
   }
 }
 
