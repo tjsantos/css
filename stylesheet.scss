@@ -18,6 +18,11 @@ $tan: #c49a6c;
 $light-tan: #c2b59b;
 $dark-gray: #414042;
 
+$light-blue: #00aeef;
+$dark-blue: #1c75bc;
+$dark-green: #009444;
+$dark-orange: #f15a29;
+
 
 /*** Variables ***/
 $gutter-margin: 15px;
@@ -157,6 +162,19 @@ a:hover {
   background: $tan;
 }
 
+.background-primary {
+  background: $orange;
+}
+.background-secondary {
+  background: $light-blue;
+}
+.background-tertiary {
+  background: $green;
+}
+.background-quaternary {
+  background: $brown;
+}
+
 .testimonial {
   background: $green;
   color: white;
@@ -182,5 +200,36 @@ a:hover {
   font-size: 1rem;
   a {
     color: $light-brown;
+  }
+}
+
+
+/*** Button Modules ***/
+.btn {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-image: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+
+  padding: 12px 30px;
+  font-size: (21/16) + 0em;
+  font-weight: bold;
+  border-radius: 4px;
+
+  transition: all 0.3s ease 0s;
+}
+
+.btn-primary {
+  color: white;
+  background: $green;
+  border-color: $green;
+  &:hover {
+    background: none;
+    border-color: white;
+    text-decoration: none;
   }
 }
