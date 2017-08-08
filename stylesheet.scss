@@ -286,11 +286,11 @@ a {
 
 /*** Hero Modules ***/
 .hero {
-  background: $brown;
   color: white;
   text-align: center;
   padding-top: 80px;
   padding-bottom: 25px;
+  position: relative;
 }
 .hero__header {
   margin: 0 auto;
@@ -301,4 +301,36 @@ a {
   margin: 50px auto;
   font-size: (24/16) + 0em;
   line-height: 1.8;
+}
+
+// centered background image controlled by child img element,
+// requires position: relative on parent container
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  img {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $brown;
+    opacity: 0.55;
+  }
+  ~ * {
+    position: relative;
+  }
 }
