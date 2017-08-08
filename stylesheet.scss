@@ -17,6 +17,7 @@ $orange: #f7941e;
 $tan: #c49a6c;
 $light-tan: #c2b59b;
 $dark-gray: #414042;
+$medium-sea-green: #39b54a;
 
 $light-blue: #00aeef;
 $dark-blue: #1c75bc;
@@ -139,16 +140,6 @@ a {
 
 
 /*** Themes ***/
-.header {
-  background: $light-brown;
-  color: white;
-}
-
-.hero {
-  background: $brown;
-  color: white;
-}
-
 .feature-green {
   background: $green;
 }
@@ -222,7 +213,7 @@ a {
   transition: all 0.3s ease 0s;
 }
 
-.btn-primary {
+.btn--primary {
   color: white;
   background: $green;
   border-color: $green;
@@ -233,13 +224,29 @@ a {
   }
 }
 
-.btn-nav {
+.btn--hero {
+  color: white;
+  border-color: white;
+  padding: 15px 30px;
+  font-size: (28/16) + 0em;
+  text-transform: uppercase;
+  font-weight: normal;
+  &:hover, &:focus {
+    background: white;
+    color: $medium-sea-green;
+    text-decoration: none;
+  }
+}
+
+.btn--nav {
   color: white;
 }
 
 
 /*** Header Modules ***/
 .header {
+  background: $light-brown;
+  color: white;
   padding-top: 18px;
   padding-bottom: 18px;
 }
@@ -274,4 +281,24 @@ a {
   img {
     height: 100%;
   }
+}
+
+
+/*** Hero Modules ***/
+.hero {
+  background: $brown;
+  color: white;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 25px;
+}
+.hero__header {
+  margin: 0 auto;
+  font-size: (42/16) + 0em;
+  font-weight: bold;
+}
+.hero__body {
+  margin: 50px auto;
+  font-size: (24/16) + 0em;
+  line-height: 1.8;
 }
