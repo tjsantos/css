@@ -18,6 +18,7 @@ $tan: #c49a6c;
 $light-tan: #c2b59b;
 $dark-gray: #414042;
 $medium-sea-green: #39b54a;
+$linen: #e7e1d7;
 
 $light-blue: #00aeef;
 $dark-blue: #1c75bc;
@@ -170,9 +171,6 @@ a {
   color: white;
 }
 
-.media {
-  background: $light-tan;
-}
 
 .footer {
   background: $brown;
@@ -334,3 +332,41 @@ a {
     position: relative;
   }
 }
+
+
+/*** Media Modules ***/
+.media-section {
+  background: $linen;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.media {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+.media__icon {
+  font-size: 150px;
+  color: $brown;
+  width: 160px;
+}
+.media__content {
+  flex: 1;
+  line-height: 1.6;
+}
+.media__heading {
+  margin: 0;
+  font-size: (28/16) + 0em;
+  font-weight: bold;
+}
+.media__body {
+  font-size: (18/16) + 0em;
+  margin: 0 0 40px 0;
+  padding-right: 20px;
+}
+.font125px {
+  font-size: 125px !important;
+}
+
