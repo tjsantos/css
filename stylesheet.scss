@@ -398,7 +398,8 @@ a {
   font-style: italic;
   line-height: 1.75;
   @include small-and-above() {
-    margin-top: 60px;
+    max-width: 35em;
+    margin: 60px auto 0;
     font-size: (26/16) + 0em;
   }
 }
