@@ -191,6 +191,7 @@ a {
 .btn {
   display: inline-block;
   text-align: center;
+  white-space: nowrap;
   vertical-align: middle;
   background-image: none;
   border: 1px solid transparent;
@@ -223,6 +224,7 @@ a {
 }
 
 .btn--hero {
+  white-space: normal;
   color: white;
   border-color: white;
   padding: 15px 30px;
