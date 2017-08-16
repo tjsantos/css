@@ -408,11 +408,17 @@ a {
   }
 }
 .testimonial__rating {
-  font-size: (60/16) + 0em;
+  font-size: 60px;
   line-height: 1.3;
   text-shadow: 0 0 8px black;
   @include medium-and-above() {
-    font-size: (72/16) + 0em;
+    font-size: 72px;
+  }
+}
+.testimonial__rating--xs-fix {
+  // override style guide so that rating is smaller and doesn't wrap on mobile
+  @media only screen and (max-width: 400px) {
+    font-size: 48px;
   }
 }
 .testimonial__body {
