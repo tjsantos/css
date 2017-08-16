@@ -324,6 +324,10 @@ a {
   font-size: (24/16) + 0em;
   line-height: 1.8;
   max-width: 40em;
+  @include medium-and-above() {
+    font-size: (26/16) + 0em;
+    line-height: 1.65;
+  }
 }
 
 // centered background image controlled by child img element,
