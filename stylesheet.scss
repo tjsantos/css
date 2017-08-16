@@ -359,6 +359,74 @@ a {
 }
 
 
+/*** Intro Modules ***/
+.intro {
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 55px;
+  @include medium-and-above() {
+    text-align: left;
+    padding-top: 50px;
+  }
+}
+.intro__heading {
+  margin: 0;
+  font-size: (32/16) + 0em;
+  font-weight: bold;
+  line-height: 1.5;
+  @include medium-and-above() {
+    font-size: (36/16) + 0em;
+    margin-bottom: 0.2em;
+  }
+}
+.intro__body {
+  margin: 0;
+  font-size: (24/16) + 0em;
+  line-height: 1.75;
+  max-width: 40em;
+  @include medium-and-above() {
+    font-size: (26/16) + 0em;
+    line-height: 1.65;
+  }
+}
+.intro__image {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto 40px;
+  img {
+    width: 100%;
+  }
+  @include medium-and-above() {
+    width: 355px;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    top: -(30 + 50) + 0px;
+    margin: 0;
+    // want 63px below relatively positioned image
+    // subtract relative positioning (30 + 50) and bottom padding of container (55)
+    margin-bottom: (63 - ((30 + 50) + 55)) + 0px;
+  }
+}
+.frame--circle {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.mask--orange {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $orange;
+    opacity: 0.6;
+  }
+}
+
+
 /*** Media Modules ***/
 .media-section {
   background: $linen;
