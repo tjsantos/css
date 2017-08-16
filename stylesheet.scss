@@ -244,21 +244,21 @@ a {
 }
 
 
-/*** Header Modules ***/
+/*** Header and Navigation Modules ***/
 .header {
   background: $light-brown;
   color: white;
   padding-top: 18px;
   padding-bottom: 18px;
+  @include medium-and-above() {
+    padding-top: 30px;
+    background: transparent;
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+  }
 }
 
-
-/*** Navigation Modules ***/
-.navbar {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-}
 .nav {
   list-style: none;
   padding: 0;
@@ -267,18 +267,36 @@ a {
   flex-flow: column;
   align-items: center;
   margin-top: 23px;  // 35px minus 12px padding
+
+  @include medium-and-above() {
+    flex-flow: row;
+    margin-top: 0;
+    height: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
   > :last-child {
     margin-top: 12px;
+    @include medium-and-above() {
+      margin-top: 0;
+    }
   }
 }
-
-
-/*** Logo Modules ***/
 .logo {
   overflow: hidden;
-  display: inline-block;
+  display: block;
   width: 64px;
   height: 64px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include medium-and-above() {
+    overflow: visible;
+    width: auto;
+    height: 50px;
+  }
+
   img {
     height: 100%;
   }
@@ -292,6 +310,9 @@ a {
   padding-top: 80px;
   padding-bottom: 25px;
   position: relative;
+  @include medium-and-above() {
+    padding-top: 150px;
+  }
 }
 .hero__header {
   margin: 0 auto;
