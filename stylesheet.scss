@@ -344,8 +344,8 @@ a {
     min-width: 100%;
     min-height: 100%;
     left: 50%;
-    top: 0;
-    transform: translate(-50%, 0%);
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
   &::after {
     content: '';
@@ -359,6 +359,13 @@ a {
   }
   ~ * {
     position: relative;
+  }
+}
+.bg-image--align-top {
+  img {
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0%);
   }
 }
 
@@ -467,6 +474,91 @@ a {
   font-size: 125px !important;
 }
 
+
+/*** Features ***/
+.feature-thumbnail {
+  padding-top: 4px;
+  height: (200 + 4) + 0px;
+  position: relative;
+  margin: 0 (-$gutter-margin);
+  @include medium-and-above() {
+    margin: 0;
+  }
+}
+.feature-tag {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  height: 50px;
+  padding: 10px 35px 10px 15px;
+  background: inherit;
+  color: white;
+  font-size: (24/16) + 0em;
+  font-weight: normal;
+  line-height: 1;
+  @include medium-and-above() {
+    height: 40px;
+    padding: 8px 25px 10px 10px;
+    font-size: (21/16) + 0em;
+  }
+}
+.bg-image--feature {
+  top: 4px;
+  &::after {
+    opacity: 0.75;
+
+    visibility: hidden;
+    @include medium-and-above() {
+      visibility: visible;
+    }
+  }
+}
+.btn--feature {
+  white-space: nowrap;
+  color: white;
+  border-color: white;
+  padding: 10px 15px;
+  font-size: (18/16) + 0em;
+  text-transform: uppercase;
+  font-weight: normal;
+  &:hover, &:focus {
+    background: white;
+    color: $medium-sea-green;
+    text-decoration: none;
+  }
+}
+.feature-more {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  // compensate the 'left: 50%' rule which reduces the available width for the element by 50%
+  margin-right: -50%;
+
+  visibility: hidden;
+  @include medium-and-above() {
+    visibility: visible;
+  }
+}
+.feature-text {
+  margin: 20px 0 40px;
+  @include medium-and-above() {
+    margin-bottom: 50px;
+  }
+}
+.feature-heading {
+  font-size: (28/16) + 0em;
+  font-weight: bold;
+  margin: .1em 0;
+}
+.feature-body {
+  font-size: (18/16) + 0em;
+  margin: 0;
+  line-height: 1.6;
+}
+
+
+/*** Testimonial ***/
 .testimonial {
   position: relative;
   color: white;
