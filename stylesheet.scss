@@ -312,6 +312,7 @@ a {
   position: relative;
   @include medium-and-above() {
     padding-top: 150px;
+    padding-bottom: 110px;
   }
 }
 .hero__header {
