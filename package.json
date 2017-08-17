@@ -1,15 +1,27 @@
 {
-  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "chokidar-cli": "^1.2.0",
     "node-sass": "^4.5.3",
-    "postcss-cli": "^4.1.0"
+    "postcss-cli": "^4.1.0",
+    "stylelint": "^8.0.0",
+    "stylelint-config-sass-guidelines": "^3.1.0",
+    "stylelint-config-standard": "^17.0.0"
   },
   "scripts": {
     "scss": "node-sass stylesheet.scss stylesheet.css --source-map true",
     "autoprefixer": "postcss stylesheet.css --use autoprefixer --replace",
     "build:css": "npm run scss && npm run autoprefixer",
     "watch:css": "chokidar '[s]tylesheet.scss' --command 'npm run build:css' --initial --verbose"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-sass-guidelines",
+    "rules": {
+      "selector-class-pattern": null,
+      "selector-list-comma-newline-after": "always-multi-line",
+      "order/properties-alphabetical-order": null,
+      "max-nesting-depth": 2
+    },
+    "defaultSeverity": "warning"
   }
 }
