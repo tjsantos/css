@@ -96,6 +96,11 @@ a {
   &:hover, &:focus {
     text-decoration: underline;
   }
+
+  &[href^="tel:"] {
+    text-decoration: none;
+    font-weight: normal;
+  }
 }
 
 
@@ -186,27 +191,6 @@ a {
 
 .background-quaternary {
   background: $brown;
-}
-
-
-.footer {
-  background: $brown;
-  color: $light-brown;
-}
-
-.footer-divider {
-  @include medium-and-above() {
-    min-height: 1px;
-    background: #fff;
-  }
-}
-
-.footer-legal {
-  font-size: 1rem;
-
-  a {
-    color: $light-brown;
-  }
 }
 
 
@@ -669,3 +653,123 @@ a {
   }
 }
 
+
+/*** Footer ***/
+.footer {
+  background: $brown;
+  color: $light-brown;
+  text-align: center;
+  margin-top: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: pem(18px);
+
+  a {
+    color: $light-brown;
+    font-weight: normal;
+  }
+
+  @include medium-and-above() {
+    text-align: unset;
+    padding-top: 35px;
+  }
+}
+
+.footer-divider {
+  @include medium-and-above() {
+    min-height: 1px;
+    background: #fff;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+}
+
+.logo--footer {
+  height: 35px;
+  width: auto;
+  margin-bottom: 40px;
+  @include medium-and-above() {
+    height: 50px;
+    margin-bottom: unset;
+    margin-top: (20px - 35px);
+  }
+}
+
+.footer-address-container {
+  line-height: 1.45;
+  margin-bottom: 35px;
+
+  &::first-line {
+    font-weight: bold;
+  }
+
+  @include medium-and-above() {
+    display: flex;
+    margin-bottom: unset;
+  }
+}
+
+.footer-address-icon, .footer-contact-icon {
+  font-size: pem(26px, 18px) !important;
+  @include medium-and-above() {
+    font-size: pem(32px, 18px) !important;
+  }
+}
+
+.footer-address-icon {
+  margin-right: 0.2em;
+}
+
+.footer-contact-icon {
+  margin-right: 0.6em;
+  @include medium-and-above() {
+    margin-right: 0.4em;
+  }
+}
+
+.footer-social-icon {
+  font-size: pem(28px, 18px) !important;
+  display: inline-block;
+  margin-right: 1.1em;
+  @include medium-and-above() {
+    margin-right: 0.8em;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.footer-address {
+  display: inline;
+  font-style: normal;
+
+  @include medium-and-above() {
+    // element becomes a flex item
+    margin-left: 0.3em;
+    margin-top: 0.3em;
+
+    &::first-line {
+      font-weight: bold;
+    }
+  }
+}
+
+.footer-contact {
+  margin-bottom: 40px;
+  @include medium-and-above() {
+    margin-bottom: unset;
+  }
+}
+
+.footer-social {
+  margin-bottom: 20px;
+  @include medium-and-above() {
+    margin-bottom: unset;
+  }
+}
+
+.footer-legal {
+  font-size: pem(12px, 18px);
+  line-height: 1.7;
+}
