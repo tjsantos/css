@@ -446,6 +446,7 @@ a {
     width: 100%;
   }
 
+  //noinspection CssOptimizeSimilarProperties
   @include medium-and-above() {
     width: 355px;
     max-width: 100%;
