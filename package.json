@@ -19,6 +19,9 @@
     "rules": {
       "selector-class-pattern": null,
       "selector-list-comma-newline-after": "always-multi-line",
+      "selector-no-qualifying-type": [true, {
+        "ignore": ["attribute"]
+      }],
       "order/properties-alphabetical-order": null,
       "max-nesting-depth": 2
     },

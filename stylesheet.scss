@@ -37,7 +37,6 @@ $max-content-width: 75rem; /* large device breakpoint = 1200px */
 
 @mixin flex-column($fraction) {
   flex: 0 0 percentage($fraction);
-  // from bootstrap:
   // Add a `max-width` to ensure content within each column does not blow out
   // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
   // do not appear to require this.
@@ -54,53 +53,6 @@ $max-content-width: 75rem; /* large device breakpoint = 1200px */
   }
 
   @return $pixels / $base * 1em;
-}
-
-
-/*** Colors ***/
-$light-brown: #9b8579;
-$brown: #594a42;
-$green: #8dc63f;
-$orange: #f7941e;
-$tan: #c49a6c;
-$light-tan: #c2b59b;
-$dark-gray: #414042;
-$medium-sea-green: #39b54a;
-$linen: #e7e1d7;
-
-$light-blue: #00aeef;
-$dark-blue: #1c75bc;
-$dark-green: #009444;
-$dark-orange: #f15a29;
-
-
-/*** Base Styles ***/
-html {
-  font-size: 100%;
-}
-
-body {
-  color: $dark-gray;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: normal;
-}
-
-h1, h2, h3 {
-  font-weight: bold;
-}
-
-a {
-  color: $green;
-  font-weight: bold;
-
-  &:hover, &:focus {
-    text-decoration: underline;
-  }
-
-  &[href^="tel:"] {
-    text-decoration: none;
-    font-weight: normal;
-  }
 }
 
 
@@ -156,10 +108,44 @@ a {
   }
 }
 
-.remove-gutter-xs {
-  @include extra-small-only() {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+
+/*** Colors ***/
+$light-brown: #9b8579;
+$brown: #594a42;
+$green: #8dc63f;
+$orange: #f7941e;
+$tan: #c49a6c;
+$dark-gray: #414042;
+$medium-sea-green: #39b54a;
+$linen: #e7e1d7;
+
+
+/*** Base Styles ***/
+html {
+  font-size: 100%;
+}
+
+body {
+  color: $dark-gray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+a {
+  color: $green;
+  font-weight: bold;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+
+  &[href^='tel:'] {
+    text-decoration: none;
+    font-weight: normal;
   }
 }
 
@@ -175,22 +161,6 @@ a {
 
 .feature-tan {
   background: $tan;
-}
-
-.background-primary {
-  background: $orange;
-}
-
-.background-secondary {
-  background: $light-blue;
-}
-
-.background-tertiary {
-  background: $green;
-}
-
-.background-quaternary {
-  background: $brown;
 }
 
 
